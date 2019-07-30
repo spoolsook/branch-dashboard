@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 import {Card} from 'antd';import Chart from 'react-google-charts';
 
 export default class StatChart extends Component {
