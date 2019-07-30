@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import GoogoleMapReact from 'google-map-react';
-import BranchModel from '../models/branchModel';
+// import BranchModel from '../models/branchModel'; --> remove
 
 import { connect } from 'react-redux'
 
@@ -19,8 +19,9 @@ class MapBranch extends Component {
     handleApiLoaded(map, maps) {
 
         let bounds = new maps.LatLngBounds();
+        let branches = this.props.branches;
 
-        BranchModel.branches.forEach(branch => {
+        branches.forEach(branch => {
             new maps.Marker({
                 position: branch.position,
                 map,
@@ -40,6 +41,7 @@ class MapBranch extends Component {
                 height: '100vh',
                 width: '100%'
             }}>
+                <div>{this.props.label}</div>
                 <GoogoleMapReact
                     bootstrapURLKeys={
                         {
@@ -59,9 +61,13 @@ class MapBranch extends Component {
 
 
 // snippet 'reduxmap'
-const mapStateToProps = (state) => ({
-    
-})
+const mapStateToProps = (state) => {
+    console.log('mapStateToProps: ',state);   //--> send from reducer initialState()
+    return {
+        label: state.welcomeText,
+        branches: state.branches
+    };
+}
 
 const mapDispatchToProps = {
     
