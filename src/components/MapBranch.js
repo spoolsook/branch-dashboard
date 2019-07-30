@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import GoogoleMapReact from 'google-map-react';
+import BranchModel from '../models/branchModel';
 
 export default class MapBranch extends Component {
 
@@ -13,23 +14,26 @@ export default class MapBranch extends Component {
     };
 
     handleApiLoaded(map, maps) {
-        let marker = new maps.Marker({
-            position: this.props.center,
-            map,
-            title: 'Kerry'
+
+        BranchModel.branches.forEach(branch => {
+            new maps.Marker({
+                position: branch.position,
+                map,
+                title: branch.name
+            });
         });
-      }
+    }
 
     render() {
-        return (            
+        return (
             <div style={{
                 height: '100vh',
                 width: '100%'
-              }}>
+            }}>
                 <GoogoleMapReact
                     bootstrapURLKeys={
                         {
-                            key: 'AIzaSyBDqlW1EIlePcA48oLVV_kYQJXm9dQ75uw'
+                            key: 'AIzaSyCAIzxNZLF4W1WbuC09goXutCgyycGSLOU'
                         }
                     }
                     defaultCenter={this.props.center}
