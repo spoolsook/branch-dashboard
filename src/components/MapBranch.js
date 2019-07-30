@@ -23,11 +23,16 @@ class MapBranch extends Component {
 
         // BranchModel.  --> remove
         branches.forEach(branch => {
-            new maps.Marker({
+            let marker = new maps.Marker({
                 position: branch.position,
                 map,
-                title: branch.name
+                title: branch.name,
+                // กำหนด id ของสาขา
+                branchId: branch.id
             });
+
+            // กำหนด event listenter สำหรับการคลิกเลือก
+            marker.addListener('click', () => { this.markerClick(marker) })
 
             bounds.extend(branch.position);
         });
@@ -63,7 +68,7 @@ class MapBranch extends Component {
 
 // snippet 'reduxmap'
 const mapStateToProps = (state) => {
-    console.log('mapStateToProps: ',state);   //--> send from reducer initialState()
+    console.log('mapStateToProps: ', state);   //--> send from reducer initialState()
     return {
         label: state.welcomeText,
         branches: state.branches
@@ -71,8 +76,8 @@ const mapStateToProps = (state) => {
 }
 
 const mapDispatchToProps = {
-    
+
 }
 
 
-export default connect(mapStateToProps,mapDispatchToProps)(MapBranch)
+export default connect(mapStateToProps, mapDispatchToProps)(MapBranch)
