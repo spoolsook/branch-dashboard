@@ -3,6 +3,7 @@ import GoogoleMapReact from 'google-map-react';
 // import BranchModel from '../models/branchModel'; --> remove
 
 import { connect } from 'react-redux'
+import Actions from '../redux/action'
 
 
 class MapBranch extends Component {
@@ -19,6 +20,7 @@ class MapBranch extends Component {
     markerClick = (marker) =>{
         console.log('เลือกสาขา ' + marker.get('branchId') +' '+ marker.get('title'));
         
+        this.props.showBranchDataInChart(marker.get('branchId'));
     }
 
     handleApiLoaded(map, maps) {
@@ -80,8 +82,10 @@ const mapStateToProps = (state) => {
     };
 }
 
-const mapDispatchToProps = {
-
+const mapDispatchToProps = dispatch => {
+    return {
+        showBranchDataInChart: (branchId) =>  dispatch(Actions.showBranchData(branchId))//{console.log('กำลังส่ง ' + branchId +' เข้า redux')}
+    }
 }
 
 
