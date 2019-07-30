@@ -16,6 +16,14 @@ class StatChart extends Component {
                         chartType="Line"
                         loader={<div>Loading Chart</div>}
                         data={this.props.chartData}
+                        options={{
+                            hAxis: {
+                              title: 'Time',
+                            },
+                            vAxis: {
+                              title: 'Popularity',
+                            },
+                          }}
                         rootProps={{ 'data-testid': '1' }}
                     />
                 </Card>
