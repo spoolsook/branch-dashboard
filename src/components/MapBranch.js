@@ -15,14 +15,21 @@ export default class MapBranch extends Component {
 
     handleApiLoaded(map, maps) {
 
+        let bounds = new maps.LatLngBounds();
+
         BranchModel.branches.forEach(branch => {
             new maps.Marker({
                 position: branch.position,
                 map,
                 title: branch.name
             });
+
+            bounds.extend(branch.position);
         });
+
+        map.fitBounds(bounds);
     }
+
 
     render() {
         return (
@@ -33,7 +40,7 @@ export default class MapBranch extends Component {
                 <GoogoleMapReact
                     bootstrapURLKeys={
                         {
-                            key: 'AIzaSyCAIzxNZLF4W1WbuC09goXutCgyycGSLOU'
+                            key: 'AIzaSyBDqlW1EIlePcA48oLVV_kYQJXm9dQ75uw'
                         }
                     }
                     defaultCenter={this.props.center}

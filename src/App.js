@@ -5,6 +5,7 @@ import HeaderBar from './components/HeaderBar';
 
 import { Layout, Menu, Breadcrumb, Row, Col } from 'antd';
 import MapBranch from './components/MapBranch';
+import StatChart from './components/StatChart';
 const { Header, Content, Footer } = Layout;
 
 
@@ -24,7 +25,7 @@ function App() {
             }}>
             <Row gutter={16}>
               <Col span={12}><MapBranch /></Col>
-              <Col span={12}>Chart</Col>
+              <Col span={12}><StatChart /></Col>
             </Row>
           </div>
         </Content>
