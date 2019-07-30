@@ -16,6 +16,11 @@ class MapBranch extends Component {
         zoom: 15
     };
 
+    markerClick = (marker) =>{
+        console.log('เลือกสาขา ' + marker.get('branchId') +' '+ marker.get('title'));
+        
+    }
+
     handleApiLoaded(map, maps) {
 
         let bounds = new maps.LatLngBounds();
