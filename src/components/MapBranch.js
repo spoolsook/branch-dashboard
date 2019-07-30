@@ -2,7 +2,10 @@ import React, { Component } from 'react'
 import GoogoleMapReact from 'google-map-react';
 import BranchModel from '../models/branchModel';
 
-export default class MapBranch extends Component {
+import { connect } from 'react-redux'
+
+
+class MapBranch extends Component {
 
     static defaultProps = {
         // Kerry Siam Seaport Location
@@ -53,3 +56,15 @@ export default class MapBranch extends Component {
         )
     }
 }
+
+// snippet 'reduxmap'
+const mapStateToProps = (state) => ({
+    
+})
+
+const mapDispatchToProps = {
+    
+}
+
+
+export default connect(mapStateToProps,mapDispatchToProps)(MapBranch)
