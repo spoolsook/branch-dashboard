@@ -75,7 +75,7 @@ class MapBranch extends Component {
 
 // snippet 'reduxmap'
 const mapStateToProps = (state) => {
-    console.log('mapStateToProps: ', state);   //--> send from reducer initialState()
+    //console.log('mapStateToProps: ', state);   //--> send from reducer initialState()
     return {
         label: state.welcomeText,
         branches: state.branches

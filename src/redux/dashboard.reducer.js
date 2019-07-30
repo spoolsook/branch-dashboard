@@ -10,7 +10,7 @@ export default (state = initialState, { type, payload }) => {
     switch (type) {
 
     case Actions.ActionType.SHOW_BRANCH_DATA:
-        console.log('กำลังจะแสดงข้อมูลสาขา')
+        console.log('กำลังจะแสดงข้อมูลสาขา (branchId:'+ payload +')')
         return { ...state, ...payload }
 
     default:
