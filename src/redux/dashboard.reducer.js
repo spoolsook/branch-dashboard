@@ -34,12 +34,14 @@ export default (state = initialState, { type, payload }) => {
 
             console.log(finalChartData);
             
-            // return {
-            //     ...state,
-            //     branchDataInChart: finalChartData
-            // }
+            return {
+                ...state,
+                branchDataInChart: finalChartData
+            }
         }
-        return { ...state }
+        else{
+            return { ...state, ...payload}
+        }
     default:
         return state
     }
