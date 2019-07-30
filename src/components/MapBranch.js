@@ -21,6 +21,7 @@ class MapBranch extends Component {
         let bounds = new maps.LatLngBounds();
         let branches = this.props.branches;
 
+        // BranchModel.  --> remove
         branches.forEach(branch => {
             new maps.Marker({
                 position: branch.position,
