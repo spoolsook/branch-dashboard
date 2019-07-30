@@ -4,6 +4,7 @@ import './App.css';
 import HeaderBar from './components/HeaderBar';
 
 import {Layout, Menu, Breadcrumb} from 'antd';
+import MapBranch from './components/MapBranch';
 const {Header, Content, Footer} = Layout;
 
 function App() {
@@ -19,7 +20,10 @@ function App() {
             background: '#fff',
             padding: 24,
             minHeight: 280
-          }}>Content</div>
+          }}>
+            <MapBranch />
+
+          </div>
         </Content>
         <Footer style={{
           textAlign: 'center'
