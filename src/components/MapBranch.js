@@ -57,6 +57,7 @@ class MapBranch extends Component {
     }
 }
 
+
 // snippet 'reduxmap'
 const mapStateToProps = (state) => ({
     
